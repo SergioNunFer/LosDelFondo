@@ -1,0 +1,204 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+}
+
+.section {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: transform 0.8s ease-in-out;
+}
+
+.inicio {
+    background-image: url('FondoInicio.webp');
+    background-size: cover;
+    background-position: center;
+    color: white;
+    text-align: center;
+    flex-direction: column;
+}
+
+.inicio h1 {
+    font-size: 50px;
+    text-shadow: 5px 5px 5px black;
+}
+
+.inicio p {
+    font-size: 30px;
+    text-shadow: 2px 2px 4px black;
+}
+
+#video {
+    background-color: #222;
+    color: white;
+}
+
+.content {
+    display: flex;
+    width: 80%;
+    align-items: center;
+    gap: 20px;
+}
+
+video {
+    width: 50%;
+    border-radius: 10px;
+}
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+    z-index: 99;
+}
+
+.menu-open .overlay {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.menu-btn {
+    position: fixed;
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
+    width: 60px;
+    height: 60px;
+    background-color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease;
+    z-index: 100;
+}
+
+.menu-btn:hover {
+    background-color: #ddd;
+}
+
+.menu-btn div {
+    width: 35px;
+    height: 3px;
+    background-color: black;
+    position: relative;
+    transition: background-color 0.3s ease;
+}
+
+.menu-btn div::before,
+.menu-btn div::after {
+    content: "";
+    width: 35px;
+    height: 3px;
+    background-color: black;
+    position: absolute;
+    left: 0;
+    transition: transform 0.3s ease, top 0.3s ease;
+}
+
+.menu-btn div::before {
+    top: -10px;
+}
+
+.menu-btn div::after {
+    top: 10px;
+}
+
+.menu-open .menu-btn div {
+    background: transparent;
+}
+
+.menu-open .menu-btn div::before {
+    transform: rotate(45deg);
+    top: 0;
+}
+
+.menu-open .menu-btn div::after {
+    transform: rotate(-45deg);
+    top: 0;
+}
+
+.menu {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.1);
+    transform: translate(-50%, -50%) scale(0);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+    opacity: 0;
+    backdrop-filter: blur(10px);
+}
+
+.menu-open .menu {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 1;
+}
+
+.menu a {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    background-color: black;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: transform 0.5s ease, opacity 0.5s ease;
+    padding: 10px;
+}
+
+.menu a:hover{
+    transition: 0.3s;
+    background-color: white;
+    box-shadow: 1px 1px 15px black;
+    color: black;
+}
+
+.menu a:nth-child(1) { transform: rotate(0deg) translateY(-200px) rotate(0deg); }
+.menu a:nth-child(2) { transform: rotate(60deg) translateY(-200px) rotate(-60deg); }
+.menu a:nth-child(3) { transform: rotate(120deg) translateY(-200px) rotate(-120deg); }
+.menu a:nth-child(4) { transform: rotate(180deg) translateY(-200px) rotate(-180deg); }
+.menu a:nth-child(5) { transform: rotate(240deg) translateY(-200px) rotate(-240deg); }
+.menu a:nth-child(6) { transform: rotate(300deg) translateY(-200px) rotate(-300deg); }
+
+.menu-open .menu a {
+    opacity: 1;
+}
+
+.menu-btn {
+    z-index: 101;
+}
+
+.menu-open .menu {
+    backdrop-filter: blur(10px); 
+}
+
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
