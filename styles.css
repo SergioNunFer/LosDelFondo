@@ -64,24 +64,28 @@ video {
     z-index: 99;
 }
 
+/* Estilo del botón principal */
 .main {
     position: fixed;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 170px;
-    height: 170px;
+    width: 250px; /* Aumenta el tamaño del menú */
+    height: 250px; /* Aumenta el tamaño del menú */
     z-index: 999;
+    transition: all 0.3s ease;
 }
 
+/* Cuando el botón está activo (en el centro de la pantalla) */
 .main.active {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%); 
-    width: 170px;
-    height: 170px;
+    width: 250px; /* Aumenta el tamaño del menú */
+    height: 250px; /* Aumenta el tamaño del menú */
 }
 
+/* Fondo difuminado */
 .body-blur {
     position: fixed;
     top: 0;
@@ -104,7 +108,7 @@ video {
     overflow: auto; /* Permite el scroll en el fondo */
 }
 
-/* Se asegura de que el fondo no bloquee el scroll en dispositivos móviles */
+/* Cambiar el comportamiento del fondo difuminado en móviles */
 @media (max-width: 768px) {
     .body-blur.active {
         position: absolute; /* Cambia de fixed a absolute para evitar bloqueo del scroll */
@@ -112,73 +116,92 @@ video {
     }
 }
 
+/* Estilo de la navegación */
 .main .navigation {
-position: relative;
-width: 40px;
-height: 40px;
-cursor: pointer;
-display: flex;
-justify-content: center;
-align-items: center;
-transition: 0.5s;
+    position: relative;
+    width: 60px; /* Aumenta el tamaño del botón de navegación */
+    height: 60px; /* Aumenta el tamaño del botón de navegación */
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s;
 }
+
+/* Iconos dentro de la navegación */
 .main .navigation span {
-position: absolute;
-width: 7px;
-height: 7px;
-background: #fff;
-transform: translate(calc(14px * var(--x)), calc(14px * var(--y)));
-transition: transform 0.5s, width 0.5s, height 0.5s, background 0.5s;
-transition-delay: calc(0.1s * var(--i));
-display: flex;
-justify-content: center;
-align-items: center;
+    position: absolute;
+    width: 10px; /* Aumenta el tamaño de los puntos */
+    height: 10px; /* Aumenta el tamaño de los puntos */
+    background: #fff;
+    transform: translate(calc(18px * var(--x)), calc(18px * var(--y)));
+    transition: transform 0.5s, width 0.5s, height 0.5s, background 0.5s;
+    transition-delay: calc(0.1s * var(--i));
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
+/* Cambiar el tamaño de los puntos cuando están activos */
 .main .navigation.active span {
-width: 45px;
-height: 45px;
-background: #37384f;
-transform: translate(calc(60px * var(--x)), calc(60px * var(--y)));
+    width: 60px; /* Aumenta el tamaño de los puntos cuando están activos */
+    height: 60px; /* Aumenta el tamaño de los puntos cuando están activos */
+    background: #37384f;
+    transform: translate(calc(100px * var(--x)), calc(100px * var(--y)));
 }
+
+/* Estilo de los iconos dentro de los puntos */
 .main .navigation span ion-icon {
-transition: 0.5s;
-font-size: 0em;
-color: #fff;
+    transition: 0.5s;
+    font-size: 0em;
+    color: #fff;
 }
+
+/* Aumentar el tamaño de los iconos cuando están activos */
 .main .navigation.active span ion-icon {
-font-size: 1.35em;
+    font-size: 2em; /* Aumenta el tamaño del icono */
 }
+
+/* Efecto de hover en los iconos */
 .main .navigation.active span:hover ion-icon {
-color: #2dfc52;
-filter: drop-shadow(0 0 2px #2dfc52) drop-shadow(0 0 5px #2dfc52)
-    drop-shadow(0 0 15px #2dfc52);
+    color: #2dfc52;
+    filter: drop-shadow(0 0 2px #2dfc52) drop-shadow(0 0 5px #2dfc52) drop-shadow(0 0 15px #2dfc52);
 }
+
+/* Estilo para el botón de cierre */
 .close {
-position: absolute;
-width: 7px;
-height: 7px;
-background: #fff;
-transition: 0.5s;
-transition-delay: 0.4s;
-pointer-events: none;
-display: flex;
-justify-content: center;
-align-items: center;
+    position: absolute;
+    width: 60px; /* Aumenta el tamaño del botón de cierre */
+    height: 60px; /* Aumenta el tamaño del botón de cierre */
+    background: #fff;
+    transition: 0.5s;
+    transition-delay: 0.4s;
+    pointer-events: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
+
+/* Cambiar el tamaño del botón de cierre cuando el menú está activo */
 .main .navigation.active ~ .close {
-width: 40px;
-height: 40px;
-pointer-events: initial;
-transition-delay: 0.8s;
-background: #2dfc52;
+    width: 80px; /* Aumenta el tamaño del botón de cierre */
+    height: 80px; /* Aumenta el tamaño del botón de cierre */
+    pointer-events: initial;
+    transition-delay: 0.8s;
+    background: #2dfc52;
 }
+
+/* Estilo del icono dentro del botón de cierre */
 .main .navigation ~ .close ion-icon {
-font-size: 2em;
-scale: 0;
-color: #10131c;
-transition: 0.5s;
+    font-size: 2.5em; /* Aumenta el tamaño del icono */
+    scale: 0;
+    color: #10131c;
+    transition: 0.5s;
 }
+
+/* Animación para mostrar el icono de cierre */
 .main .navigation.active ~ .close ion-icon {
-scale: 1;
-transition-delay: 1s;
+    scale: 1;
+    transition-delay: 1s;
 }
+
