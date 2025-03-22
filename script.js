@@ -19,17 +19,27 @@ window.addEventListener("wheel", (event) => {
         isScrolling = false;
     }, 800);
 });
-const menuBtn = document.getElementById("menu-btn");
-const body = document.body;
-
-menuBtn.addEventListener("click", () => {
-    body.classList.toggle("menu-open");
-});
-
-document.querySelectorAll(".menu a").forEach(link => {
-    link.addEventListener("click", () => {
-        document.body.classList.remove('menu-open');
-    });
-});
 
 
+let navigation = document.querySelector(".navigation");
+let close = document.querySelector(".close");
+let main = document.querySelector(".main");
+let bodyBlur = document.createElement("div"); 
+bodyBlur.classList.add("body-blur");
+document.body.appendChild(bodyBlur);
+
+navigation.onclick = function () {
+    if (!main.classList.contains("active")) { 
+        main.classList.add("active");
+        navigation.classList.add("active");
+        bodyBlur.classList.add("active");
+    }
+};
+
+close.onclick = function () {
+    if (main.classList.contains("active")) {
+        main.classList.remove("active");
+        navigation.classList.remove("active");
+        bodyBlur.classList.remove("active");
+    }
+};

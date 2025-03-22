@@ -7,19 +7,38 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="menu-btn" id="menu-btn">
-        <div></div>
-    </div>
 
-    <nav class="menu" id="menu">
-        <a href="#gancho">Gancho</a>
-        <a href="#video">Video</a>
-        <a href="#necesidad">Necesidad</a>
-        <a href="#solucion">Solución</a>
-        <a href="#beneficios">Beneficios</a>
-        <a href="#colaboracion">Colaboración</a>
-        <a href="#inicio">Inicio</a>
-    </nav>
+    <div class="main">
+        <div class="navigation">
+            <span style="--i:0;--x:-1;--y:0;">
+                <a href="#video"><ion-icon name="film-outline"></ion-icon></a> 
+            </span>
+            <span style="--i:1;--x:1;--y:0;">
+                <a href="#solucion"><ion-icon name="hammer-outline"></ion-icon></a> 
+            </span>
+            <span style="--i:2;--x:0;--y:-1;">
+                <a href="#beneficios"><ion-icon name="rocket-outline"></ion-icon></a>
+            </span>
+            <span style="--i:3;--x:0;--y:1;">
+                <a href="#gancho"><ion-icon name="alarm-outline"></ion-icon></a> 
+            </span>
+            <span style="--i:4;--x:-1;--y:1;">
+                <a href="#necesidad"><ion-icon name="add-circle-outline"></ion-icon></a> 
+            </span>
+            <span style="--i:5;--x:-1;--y:-1;">
+                <a href="#colaboracion"><ion-icon name="people-outline"></ion-icon></a>
+            </span>
+            <span style="--i:6;--x:1;--y:-1;">
+                <a href="#participantes"><ion-icon name="person-add-outline"></ion-icon></a>
+            </span>
+            <span style="--i:7;--x:1;--y:1;">
+                <a href="#sobrenosotros"><ion-icon name="information-circle-outline"></ion-icon></a>
+            </span>
+        </div>
+        <div class="close">
+            <ion-icon name="close-outline"></ion-icon>
+        </div>
+    </div>
 
     <section id="inicio" class="section inicio">
         <h1>Los Del Fondo</h1>
@@ -61,6 +80,8 @@
         <p>Explicación de la Colaboración...</p>
     </section>
 
-    <script src="script.js"></script>
+    <script src='https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js'></script>
+    <script src='https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js'></script><script  src="./script.js"></script>
+    
 </body>
 </html>

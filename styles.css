@@ -64,142 +64,110 @@ video {
     z-index: 99;
 }
 
-.menu-open .overlay {
+.main {
+    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 170px;
+    height: 170px;
+    z-index: 999;
+}
+
+.main.active {
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); 
+    width: 170px;
+    height: 170px;
+}
+
+.body-blur {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    backdrop-filter: blur(8px);
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 99;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.body-blur.active {
     opacity: 1;
     pointer-events: all;
 }
 
-.menu-btn {
-    position: fixed;
-    top: 50%;
-    left: 20px;
-    transform: translateY(-50%);
-    width: 60px;
-    height: 60px;
-    background-color: white;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
-    transition: background-color 0.3s ease;
-    z-index: 100;
+.main .navigation {
+position: relative;
+width: 40px;
+height: 40px;
+cursor: pointer;
+display: flex;
+justify-content: center;
+align-items: center;
+transition: 0.5s;
 }
-
-.menu-btn:hover {
-    background-color: #ddd;
+.main .navigation span {
+position: absolute;
+width: 7px;
+height: 7px;
+background: #fff;
+transform: translate(calc(14px * var(--x)), calc(14px * var(--y)));
+transition: transform 0.5s, width 0.5s, height 0.5s, background 0.5s;
+transition-delay: calc(0.1s * var(--i));
+display: flex;
+justify-content: center;
+align-items: center;
 }
-
-.menu-btn div {
-    width: 35px;
-    height: 3px;
-    background-color: black;
-    position: relative;
-    transition: background-color 0.3s ease;
+.main .navigation.active span {
+width: 45px;
+height: 45px;
+background: #37384f;
+transform: translate(calc(60px * var(--x)), calc(60px * var(--y)));
 }
-
-.menu-btn div::before,
-.menu-btn div::after {
-    content: "";
-    width: 35px;
-    height: 3px;
-    background-color: black;
-    position: absolute;
-    left: 0;
-    transition: transform 0.3s ease, top 0.3s ease;
+.main .navigation span ion-icon {
+transition: 0.5s;
+font-size: 0em;
+color: #fff;
 }
-
-.menu-btn div::before {
-    top: -10px;
+.main .navigation.active span ion-icon {
+font-size: 1.35em;
 }
-
-.menu-btn div::after {
-    top: 10px;
+.main .navigation.active span:hover ion-icon {
+color: #2dfc52;
+filter: drop-shadow(0 0 2px #2dfc52) drop-shadow(0 0 5px #2dfc52)
+    drop-shadow(0 0 15px #2dfc52);
 }
-
-.menu-open .menu-btn div {
-    background: transparent;
+.close {
+position: absolute;
+width: 7px;
+height: 7px;
+background: #fff;
+transition: 0.5s;
+transition-delay: 0.4s;
+pointer-events: none;
+display: flex;
+justify-content: center;
+align-items: center;
 }
-
-.menu-open .menu-btn div::before {
-    transform: rotate(45deg);
-    top: 0;
+.main .navigation.active ~ .close {
+width: 40px;
+height: 40px;
+pointer-events: initial;
+transition-delay: 0.8s;
+background: #2dfc52;
 }
-
-.menu-open .menu-btn div::after {
-    transform: rotate(-45deg);
-    top: 0;
+.main .navigation ~ .close ion-icon {
+font-size: 2em;
+scale: 0;
+color: #10131c;
+transition: 0.5s;
 }
-
-.menu {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    width: 100%;
-    height: 100%;
-    background: rgba(255, 255, 255, 0.1);
-    transform: translate(-50%, -50%) scale(0);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    transition: transform 0.5s ease, opacity 0.5s ease;
-    opacity: 0;
-    backdrop-filter: blur(10px);
-}
-
-.menu-open .menu {
-    transform: translate(-50%, -50%) scale(1);
-    opacity: 1;
-}
-
-.menu a {
-    position: absolute;
-    width: 100px;
-    height: 100px;
-    background-color: black;
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 16px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    transition: transform 0.5s ease, opacity 0.5s ease;
-    padding: 10px;
-}
-
-.menu a:hover{
-    transition: 0.3s;
-    background-color: white;
-    box-shadow: 1px 1px 15px black;
-    color: black;
-}
-
-.menu a:nth-child(1) { transform: rotate(0deg) translateY(-200px) rotate(0deg); }
-.menu a:nth-child(2) { transform: rotate(60deg) translateY(-200px) rotate(-60deg); }
-.menu a:nth-child(3) { transform: rotate(120deg) translateY(-200px) rotate(-120deg); }
-.menu a:nth-child(4) { transform: rotate(180deg) translateY(-200px) rotate(-180deg); }
-.menu a:nth-child(5) { transform: rotate(240deg) translateY(-200px) rotate(-240deg); }
-.menu a:nth-child(6) { transform: rotate(300deg) translateY(-200px) rotate(-300deg); }
-
-.menu-open .menu a {
-    opacity: 1;
-}
-
-.menu-btn {
-    z-index: 101;
-}
-
-.menu-open .menu {
-    backdrop-filter: blur(10px); 
-}
-
-
-@keyframes fadeIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+.main .navigation.active ~ .close ion-icon {
+scale: 1;
+transition-delay: 1s;
 }
