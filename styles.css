@@ -98,7 +98,7 @@ video {
 
 .body-blur.active {
     opacity: 1;
-    pointer-events: all;
+    pointer-events: auto;
 }
 
 .main .navigation {
