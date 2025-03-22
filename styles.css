@@ -18,7 +18,7 @@ body, html {
 
 .inicio {
     background-image: url('FondoInicio.webp');
-    background-size: cover;
+    background-size: contain;
     background-position: center;
     color: white;
     text-align: center;
