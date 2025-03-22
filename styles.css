@@ -18,7 +18,7 @@ body, html {
 
 .inicio {
     background-image: url('FondoInicio.webp');
-    background-size: contain;
+    background-size: cover;
     background-position: center;
     color: white;
     text-align: center;
@@ -89,16 +89,27 @@ video {
     width: 100%;
     height: 100%;
     backdrop-filter: blur(8px);
-    background: rgba(0, 0, 0, 0.4);
+    background: rgba(0, 0, 0, 0.4); /* Oscurece un poco el fondo */
     z-index: 99;
     opacity: 0;
-    pointer-events: none;
+    pointer-events: none; /* Bloquea los eventos solo cuando el menú está inactivo */
     transition: opacity 0.5s ease-in-out;
+    overflow: hidden; /* Evita el scroll en el fondo cuando no está activo */
 }
 
+/* Cuando el menú está activo, el fondo se difumina */
 .body-blur.active {
     opacity: 1;
-    pointer-events: auto;
+    pointer-events: auto; /* Permite interactuar con el fondo */
+    overflow: auto; /* Permite el scroll en el fondo */
+}
+
+/* Se asegura de que el fondo no bloquee el scroll en dispositivos móviles */
+@media (max-width: 768px) {
+    .body-blur.active {
+        position: absolute; /* Cambia de fixed a absolute para evitar bloqueo del scroll */
+        height: auto; /* Ajusta la altura */
+    }
 }
 
 .main .navigation {
