@@ -181,3 +181,23 @@ align-items: center;
     scale: 1;  /* Asegúrate de que el icono se vea a su tamaño completo */
     transition-delay: 1s;
 }
+
+
+@media (max-width: 768px) {
+    .main.active {
+        width: 80%;  /* Usamos un porcentaje para el ancho */
+        height: 80%; /* Usamos un porcentaje para la altura */
+    }
+    .main .navigation.active span {
+        width: 20vw;   /* Ajuste dinámico con un porcentaje del ancho de la pantalla */
+        height: 20vw;  /* Ajuste dinámico con un porcentaje del ancho de la pantalla */
+        transform: translate(calc(30vw * var(--x)), calc(30vw * var(--y))); /* Asegura que los botones estén distribuidos de manera correcta */
+    }
+    .main .navigation.active ~ .close {
+        width: 20vw;   /* Ajusta el tamaño en función del ancho de la pantalla */
+        height: 20vw;  /* Ajusta el tamaño en función del ancho de la pantalla */
+    }
+    .main .navigation ~ .close ion-icon {
+        font-size: 2em;  /* Ajusta el tamaño del icono */
+    }
+}
