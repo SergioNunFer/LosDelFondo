@@ -78,8 +78,8 @@ video {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 250px;  /* Aumenta el ancho */
-    height: 250px; /* Aumenta la altura */
+    width: 250px;
+    height: 250px;
 }
 
 .body-blur {
@@ -89,12 +89,12 @@ video {
     width: 100%;
     height: 100%;
     backdrop-filter: blur(8px);
-    background: rgba(0, 0, 0, 0.4); /* Oscurece un poco el fondo */
+    background: rgba(0, 0, 0, 0.4);
     z-index: 99;
     opacity: 0;
-    pointer-events: none; /* Bloquea los eventos solo cuando el menú está inactivo */
+    pointer-events: none;
     transition: opacity 0.5s ease-in-out;
-    overflow: hidden; /* Evita el scroll en el fondo cuando no está activo */
+    overflow: hidden;
 }
 
 .body-blur.active {
@@ -133,7 +133,7 @@ justify-content: center;
 align-items: center;
 }
 .main .navigation.active span {
-width: 70px;   /* Aumenta el ancho del span */
+width: 70px;
 height: 70px;
 background: #37384f;
 transform: translate(calc(90px * var(--x)), calc(90px * var(--y)));
@@ -144,7 +144,7 @@ font-size: 0em;
 color: #fff;
 }
 .main .navigation.active span ion-icon {
-    font-size: 2em;  /* Aumenta el tamaño del icono */
+    font-size: 2em;
 }
 .main .navigation.active span:hover ion-icon {
 color: #2dfc52;
@@ -164,40 +164,40 @@ justify-content: center;
 align-items: center;
 }
 .main .navigation.active ~ .close {
-    width: 70px;  /* Aumenta el tamaño del botón de cierre */
-    height: 70px; /* Aumenta el tamaño del botón de cierre */
+    width: 70px;
+    height: 70px;
     pointer-events: initial;
     transition-delay: 0.8s;
-    background: #2dfc52;  /* Mantén el color verde */
+    background: #2dfc52;
 }
 .main .navigation ~ .close ion-icon {
-    font-size: 2.5em;  /* Aumenta el tamaño del icono del botón de cierre */
+    font-size: 2.5em;
     scale: 0;
     color: #10131c;
     transition: 0.5s;
 }
 
 .main .navigation.active ~ .close ion-icon {
-    scale: 1;  /* Asegúrate de que el icono se vea a su tamaño completo */
+    scale: 1;
     transition-delay: 1s;
 }
 
 
 @media (max-width: 768px) {
     .main.active {
-        width: 80%;  /* Usamos un porcentaje para el ancho */
-        height: 80%; /* Usamos un porcentaje para la altura */
+        width: 80%;
+        height: 80%;
     }
     .main .navigation.active span {
-        width: 20vw;   /* Ajuste dinámico con un porcentaje del ancho de la pantalla */
-        height: 20vw;  /* Ajuste dinámico con un porcentaje del ancho de la pantalla */
-        transform: translate(calc(30vw * var(--x)), calc(30vw * var(--y))); /* Asegura que los botones estén distribuidos de manera correcta */
+        width: 20vw;
+        height: 20vw; 
+        transform: translate(calc(30vw * var(--x)), calc(30vw * var(--y)))
     }
     .main .navigation.active ~ .close {
-        width: 20vw;   /* Ajusta el tamaño en función del ancho de la pantalla */
-        height: 20vw;  /* Ajusta el tamaño en función del ancho de la pantalla */
+        width: 20vw;
+        height: 20vw;
     }
     .main .navigation ~ .close ion-icon {
-        font-size: 2em;  /* Ajusta el tamaño del icono */
+        font-size: 2em;
     }
 }
