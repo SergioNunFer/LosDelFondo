@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrusel 3D de Participantes</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #111;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+        }
+
+        .menu {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .menu button {
+            display: block;
+            background: none;
+            border: none;
+            color: white;
+            font-size: 16px;
+            margin: 5px 0;
+            cursor: pointer;
+        }
+
+        .carrusel {
+            position: relative;
+            width: 400px;
+            height: 400px;
+            perspective: 1500px;
+        }
+
+        .plataforma {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+            animation: girar 10s linear infinite;
+        }
+
+        .tarjeta {
+            position: absolute;
+            width: 200px;
+            height: 280px;
+            background: #fff;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+            text-align: center;
+            padding: 15px;
+            transform-style: preserve-3d;
+            transition: transform 0.5s ease, width 0.5s ease, height 0.5s ease;
+            cursor: pointer;
+        }
+
+        .tarjeta img {
+            width: 100%;
+            height: 140px;
+            border-radius: 5px;
+        }
+
+        .tarjeta h3 {
+            margin: 10px 0;
+            font-size: 20px;
+        }
+
+        .tarjeta p {
+            font-size: 14px;
+            color: #555;
+        }
+
+        .tarjeta.seleccionada {
+            width: 300px;
+            height: 400px;
+            transform: translate(-50%, -50%) rotateY(0deg);
+            position: fixed;
+            left: 50%;
+            top: 50%;
+            z-index: 100;
+        }
+
+        .cerrar {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background: red;
+            color: white;
+            padding: 5px 10px;
+            font-size: 18px;
+            border: none;
+            cursor: pointer;
+            display: none;
+        }
+
+        @keyframes girar {
+            from { transform: rotateY(0deg); }
+            to { transform: rotateY(360deg); }
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="menu">
+    <strong style="color: white;">Seleccionar:</strong>
+    <div id="menu-items"></div>
+</div>
+
+<div class="carrusel">
+    <div class="plataforma" id="plataforma"></div>
+</div>
+
+<button class="cerrar" id="cerrar">✖</button>
+
+<script>
+    const participantes = [
+        { nombre: "Sergio", desc: "Desarrollador Web", img: "https://via.placeholder.com/200" },
+        { nombre: "Ana", desc: "Diseñadora UX", img: "https://via.placeholder.com/200" },
+        { nombre: "Luis", desc: "Ingeniero de Software", img: "https://via.placeholder.com/200" },
+        { nombre: "María", desc: "Analista de Datos", img: "https://via.placeholder.com/200" },
+        { nombre: "Carlos", desc: "Gestor de Proyectos", img: "https://via.placeholder.com/200" }
+    ];
+
+    const plataforma = document.getElementById("plataforma");
+    const menuItems = document.getElementById("menu-items");
+    const cerrarBtn = document.getElementById("cerrar");
+    const radio = 180; // Radio del círculo
+    const total = participantes.length;
+    let animacion = setInterval(() => {
+        plataforma.style.animation = "girar 10s linear infinite";
+    }, 10);
+
+    // Crear las tarjetas en círculo y los botones del menú
+    participantes.forEach((p, i) => {
+        const tarjeta = document.createElement("div");
+        tarjeta.classList.add("tarjeta");
+
+        // Calcular la posición en el círculo
+        const angulo = (i / total) * Math.PI * 2;
+        const x = Math.cos(angulo) * radio;
+        const z = Math.sin(angulo) * radio;
+
+        tarjeta.style.transform = `rotateY(${(i / total) * 360}deg) translateZ(${radio}px)`;
+        tarjeta.innerHTML = `
+            <img src="${p.img}" alt="${p.nombre}">
+            <h3>${p.nombre}</h3>
+            <p>${p.desc}</p>
+        `;
+        tarjeta.dataset.index = i;
+        plataforma.appendChild(tarjeta);
+
+        // Botón en el menú
+        const btn = document.createElement("button");
+        btn.textContent = p.nombre;
+        btn.onclick = () => seleccionarTarjeta(i);
+        menuItems.appendChild(btn);
+
+        // Click en la tarjeta
+        tarjeta.addEventListener("click", () => seleccionarTarjeta(i));
+    });
+
+    function seleccionarTarjeta(index) {
+        clearInterval(animacion);
+        plataforma.style.animation = "none";
+
+        const tarjetas = document.querySelectorAll(".tarjeta");
+        tarjetas.forEach((t, i) => {
+            if (i === index) {
+                t.classList.add("seleccionada");
+            } else {
+                t.style.display = "none";
+            }
+        });
+
+        cerrarBtn.style.display = "block";
+    }
+
+    cerrarBtn.addEventListener("click", () => {
+        const tarjetas = document.querySelectorAll(".tarjeta");
+        tarjetas.forEach((t) => {
+            t.classList.remove("seleccionada");
+            t.style.display = "block";
+        });
+
+        cerrarBtn.style.display = "none";
+
+        animacion = setInterval(() => {
+            plataforma.style.animation = "girar 10s linear infinite";
+        }, 10);
+    });
+
+</script>
+
+</body>
+</html>
