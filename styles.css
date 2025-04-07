@@ -25,7 +25,7 @@ scroll-behavior: smooth;
     font-weight: 800;
     padding: 20px;
 }
-/* Hero full-screen */
+
 .hero {
 position: relative;
 background: url('img/FondoInicio.webp') center/cover no-repeat;
@@ -69,7 +69,6 @@ transition: background 0.3s ease;
 background-color: #007f50;
 }
 
-/* Section styles */
 .section {
 padding: 180px 20px;
 }
@@ -101,14 +100,12 @@ flex-direction: row-reverse;
 text-align: center;
 }
 
-/* Footer */
 footer {
 background: #222;
 color: white;
 text-align: center;
 padding: 20px;
 }
-/* Navbar */
 .navbar {
     background-color: #fff;
     padding: 15px 20px;
@@ -117,67 +114,65 @@ padding: 20px;
     width: 100%;
     top: 0;
     z-index: 999;
-  }
-  .nav-container {
+}
+.nav-container {
     display: flex;
     justify-content: space-between;
     align-items: center;
     max-width: 1100px;
     margin: 0 auto;
-  }
-  .logo {
+}
+.logo {
     font-size: 1.5rem;
     font-weight: bold;
     color: #00a86b;
     text-decoration: none;
-  }
-  .menu-icon {
+}
+.menu-icon {
     display: none;
     font-size: 1.8rem;
     cursor: pointer;
-  }
-  .nav-links {
+}
+.nav-links {
     display: flex;
     list-style: none;
     gap: 20px;
-  }
-  .nav-links li a {
+}
+.nav-links li a {
     text-decoration: none;
     color: #333;
     font-weight: 500;
-  }
-  .nav-links li a:hover {
-    color: #00a86b;
-  }
-  
-  /* Responsive */
-  @media (max-width: 768px) {
+}
+.nav-links li a:hover {
+color: #00a86b;
+}
+
+@media (max-width: 768px) {
     .menu-icon {
-      display: block;
+    display: block;
     }
-  
+
     .nav-links {
-      position: absolute;
-      top: 60px;
-      right: 20px;
-      background-color: white;
-      flex-direction: column;
-      padding: 15px 20px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      border-radius: 10px;
-      display: none;
+        position: absolute;
+        top: 60px;
+        right: 20px;
+        background-color: white;
+        flex-direction: column;
+        padding: 15px 20px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        border-radius: 10px;
+        display: none;
     }
-  
+
     .nav-links.show {
-      display: flex;
+        display: flex;
     }
-  
+
     .nav-links li {
-      margin-bottom: 10px;
+        margin-bottom: 10px;
     }
-  
+
     .nav-links li:last-child {
-      margin-bottom: 0;
+        margin-bottom: 0;
     }
-  }
-  
+}
