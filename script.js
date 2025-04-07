@@ -1,45 +1,24 @@
-let currentSection = 0;
-const sections = document.querySelectorAll(".section");
-let isScrolling = false;
+const menuIcon = document.getElementById('menu-icon');
+const navLinks = document.getElementById('nav-links');
 
-window.addEventListener("wheel", (event) => {
-    if (isScrolling) return;
-
-    isScrolling = true; 
-
-    if (event.deltaY > 0) {
-        currentSection = Math.min(currentSection + 1, sections.length - 1);
-    } else {
-        currentSection = Math.max(currentSection - 1, 0);
-    }
-    
-    sections[currentSection].scrollIntoView({ behavior: "smooth" });
-
-    setTimeout(() => {
-        isScrolling = false;
-    }, 800);
+menuIcon.addEventListener('click', () => {
+  navLinks.classList.toggle('show');
 });
 
+const links = document.querySelectorAll('.nav-links li a');
 
-let navigation = document.querySelector(".navigation");
-let close = document.querySelector(".close");
-let main = document.querySelector(".main");
-let bodyBlur = document.createElement("div"); 
-bodyBlur.classList.add("body-blur");
-document.body.appendChild(bodyBlur);
+links.forEach(link => {
+  link.addEventListener('click', (e) => {
+    e.preventDefault(); // Evita el comportamiento predeterminado del enlace
+    const targetId = link.getAttribute('href').slice(1); // Obtiene el ID de la sección destino
+    const targetSection = document.getElementById(targetId);
+    
+    window.scrollTo({
+      top: targetSection.offsetTop,
+      behavior: 'smooth'
+    });
 
-navigation.onclick = function () {
-    if (!main.classList.contains("active")) { 
-        main.classList.add("active");
-        navigation.classList.add("active");
-        bodyBlur.classList.add("active");
-    }
-};
-
-close.onclick = function () {
-    if (main.classList.contains("active")) {
-        main.classList.remove("active");
-        navigation.classList.remove("active");
-        bodyBlur.classList.remove("active");
-    }
-};
+    // Cierra el menú al hacer clic en un enlace
+    navLinks.classList.remove('show');
+  });
+});

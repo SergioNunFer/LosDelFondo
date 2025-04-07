@@ -1,87 +1,116 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Los del Fondo</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>IA Sostenible - Los del Fondo</title>
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
 
-    <div class="main">
-        <div class="navigation">
-            <span style="--i:0;--x:-1;--y:0;">
-                <a href="#video"><ion-icon name="film-outline"></ion-icon></a> 
-            </span>
-            <span style="--i:1;--x:1;--y:0;">
-                <a href="#solucion"><ion-icon name="hammer-outline"></ion-icon></a> 
-            </span>
-            <span style="--i:2;--x:0;--y:-1;">
-                <a href="#beneficios"><ion-icon name="rocket-outline"></ion-icon></a>
-            </span>
-            <span style="--i:3;--x:0;--y:1;">
-                <a href="#gancho"><ion-icon name="alarm-outline"></ion-icon></a> 
-            </span>
-            <span style="--i:4;--x:-1;--y:1;">
-                <a href="#necesidad"><ion-icon name="add-circle-outline"></ion-icon></a> 
-            </span>
-            <span style="--i:5;--x:-1;--y:-1;">
-                <a href="#colaboracion"><ion-icon name="people-outline"></ion-icon></a>
-            </span>
-            <span style="--i:6;--x:1;--y:-1;">
-                <a href="participantes.html"><ion-icon name="person-add-outline"></ion-icon></a>
-            </span>
-            <span style="--i:7;--x:1;--y:1;">
-                <a href="#sobrenosotros"><ion-icon name="information-circle-outline"></ion-icon></a>
-            </span>
-        </div>
-        <div class="close">
-            <ion-icon name="close-outline"></ion-icon>
-        </div>
+  <nav class="navbar">
+    <div class="nav-container">
+      <a href="#inicio" class="logo">Los Del Fondo</a>
+      <div class="menu-icon" id="menu-icon">&#9776;</div>
+      <ul class="nav-links" id="nav-links">
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#problema">Problema</a></li>
+        <li><a href="#solucion">Solución</a></li>
+        <li><a href="#beneficios">Beneficios</a></li>
+        <li><a href="#colaboracion">Colaboración</a></li>
+        <li><a href="#final">#UnidosContraLaIA</a></li>
+      </ul>
     </div>
-
-    <section id="inicio" class="section inicio">
-        <h1>Los Del Fondo</h1>
-        <p>Presentación breve del grupo</p>
-    </section>
-
-    <section id="video" class="section">
-        <div class="content">
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/xsM2aLTHMiU?si=5ZUSe4CJqYJa9e6J" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            <div>
-                <h2>Explicación</h2>
-                <p>Aquí va la explicación del video.</p>
-            </div>
+  </nav>
+    
+    <header class="hero" id="inicio">
+        <div class="overlay"></div>
+        <div class="hero-content">
+        <h1>IA Sostenible</h1>
+        <p>Reduciendo el impacto ambiental de la inteligencia artificial</p>
+        <a href="#problema" class="btn">Descubre más</a>
         </div>
-    </section>
+    </header>
+    <main>
+        <section id="problema" class="section">
+            <div class="container">
+            <div class="text-img">
+                <div class="text">
+                <h2>¿Qué problema abordamos?</h2>
+                <p>
+                    La implementación de las IAs en el día a día ha acarreado problemas como el consumo excesivo de agua, electricidad y generación de residuos. Este modelo es insostenible, especialmente por el uso de recursos no renovables. Nuestra propuesta está dirigida a todos los usuarios de IA, desde quienes la usan puntualmente hasta las grandes empresas tecnológicas.
+                </p>
+                <p>
+                    Es fundamental actuar, ya que la contaminación nos afecta a todos.
+                </p>
+                </div>
+                <img src="img/Problema.jpeg" alt="Problemas ambientales" />
+            </div>
+            </div>
+        </section>
 
-    <section id="solucion" class="section">
-        <h2>Solución Propuesta</h2>
-        <p>Descripción de la solución...</p>
-    </section>
+        <section id="solucion" class="section alt">
+            <div class="container">
+            <div class="text-img reverse">
+                <div class="text">
+                <h2>¿Cuál es nuestra solución?</h2>
+                <p>
+                    Proponemos una plataforma abierta que facilite a las empresas de inteligencia artificial el acceso a fuentes de energía renovable para alimentar sus procesos de computación. Esta solución permitirá que los desarrolladores y empresas de IA integren de manera sencilla energías limpias en sus infraestructuras, reduciendo el impacto ambiental de sus operaciones sin comprometer el rendimiento.
+                </p>
+                <p>
+                    A través de esta plataforma, las empresas podrán utilizar energías renovables de manera eficiente y económica, asegurando que sus desarrollos de IA sean más sostenibles. Un micropago inicial permitirá financiar el mantenimiento de la infraestructura y garantizar su operatividad a largo plazo, promoviendo un modelo de negocio más verde y responsable con el medio ambiente.
+                </p>
+                
+                </div>
+                <img src="img/Solucion.jpeg" alt="Soluciones sostenibles" />
+            </div>
+            </div>
+        </section>
 
-    <section id="beneficios" class="section">
-        <h2>Beneficios</h2>
-        <p>Explicación de los beneficios...</p>
-    </section>
-    
-    <section id="gancho" class="section">
-        <h2>Gancho</h2>
-        <p>Explicación de los ganchos...</p>
-    </section>
+        <section id="beneficios" class="section">
+            <div class="container">
+            <div class="text-img">
+                <div class="text">
+                <h2>Beneficios</h2>
+                <p>
+                    Nuestra propuesta reducirá la huella de carbono de las IAs, fomentará el uso de energías renovables y la reutilización de servidores. Ayudará a pequeñas empresas a acceder a la IA sin costes energéticos ni monetarios excesivos.
+                </p>
+                <p>
+                    A diferencia de medidas anteriores, atacamos el problema desde el origen, no desde el comportamiento del usuario.
+                </p>
+                </div>
+                <img src="img/Beneficios.jpeg" alt="Beneficios del proyecto" />
+            </div>
+            </div>
+        </section>
 
-    <section id="necesidad" class="section">
-        <h2>Necesidad</h2>
-        <p>Explicación de la Necesidad...</p>
-    </section>
-    
-    <section id="colaboracion" class="section">
-        <h2>Colaboración</h2>
-        <p>Explicación de la Colaboración...</p>
-    </section>
+        <section id="colaboracion" class="section alt">
+            <div class="container">
+            <div class="text-img reverse">
+                <div class="text">
+                <h2>Colaboración</h2>
+                <p>
+                    Queremos colaborar con el Gobierno de España para implementar estas medidas con financiación pública. Además, planeamos una alianza con ADDA Renovables para fomentar el uso de energías limpias desde las bases del sistema.
+                </p>
+                </div>
+                <img src="img/Colaboracion.jpeg" alt="Colaboraciones futuras" />
+            </div>
+            </div>
+        </section>
 
-    <script src='https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js'></script>
-    <script src='https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js'></script><script  src="./script.js"></script>
-    
+        <section id="final" class="section final">
+            <div class="container center">
+            <h2>#UnidosContraLaIA</h2>
+            <p>
+                Si de verdad queremos reducir el impacto de la inteligencia artificial en el planeta, debemos actuar desde la raíz. ¡Súmate a nuestra iniciativa!
+            </p>
+            </div>
+        </section>
+    </main>
+  <footer>
+    <p>&copy; 2025 Los del Fondo – IA Sostenible</p>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
